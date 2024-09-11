@@ -13,7 +13,6 @@ public class AnimatedSprite : MonoBehaviour
     {
         this.spriteRenderer = GetComponent<SpriteRenderer>();
     }
-    // Start is called before the first frame update
     private void Start()
     {
         InvokeRepeating(nameof(Advance), this.animationTime, this.animationTime);
@@ -38,10 +37,5 @@ public class AnimatedSprite : MonoBehaviour
     {
         this.animationFrame = -1;
         Advance();
-    }
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }

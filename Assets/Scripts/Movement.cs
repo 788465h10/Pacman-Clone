@@ -16,7 +16,6 @@ public class Movement : MonoBehaviour
         this.rigidbody = GetComponent<Rigidbody2D>();
         this.startingPosition = this.transform.position;
     }
-    // Start is called before the first frame update
     private void Start()
     {
         ResetState();
@@ -53,7 +52,6 @@ public class Movement : MonoBehaviour
         RaycastHit2D hit = Physics2D.BoxCast(this.transform.position, Vector2.one * 0.75f, 0.0f, direction, 1.5f, this.obstaclelayer);
         return hit.collider != null;
     }
-    // Update is called once per frame
     private void Update()
     {
         if (this.nextDirection != Vector2.zero)
