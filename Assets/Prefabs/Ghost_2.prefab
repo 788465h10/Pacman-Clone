@@ -65,6 +65,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5940186519710036614, guid: 7e1b658aed326ad4cbd7b3793307fa24, type: 3}
+      propertyPath: duration
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 5940186519710036614, guid: 7e1b658aed326ad4cbd7b3793307fa24, type: 3}
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
