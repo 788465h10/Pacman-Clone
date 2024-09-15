@@ -6,6 +6,7 @@ public class GameManager : MonoBehaviour
     public Ghost[] ghosts;
     public Pacman pacman;
     public Transform pellets;
+    //more ghost you eat, more points you get
     public int ghostMultiplier { get; private set; } = 1;
     public int score { get; private set; }
     public int lives { get; private set; }

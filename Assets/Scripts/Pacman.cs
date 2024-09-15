@@ -28,6 +28,7 @@ public class Pacman : MonoBehaviour
             this.movement.SetDirection(Vector2.right);
         }
 
+        //make pacman movement clearly
         float angle = Mathf.Atan2(this.movement.direction.y, this.movement.direction.x);
         this.transform.rotation = Quaternion.AngleAxis(angle * Mathf.Rad2Deg, Vector3.forward);
     }

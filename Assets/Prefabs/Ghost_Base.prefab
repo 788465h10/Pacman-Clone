@@ -112,6 +112,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8907332305922717794}
   - component: {fileID: 8767368262611319108}
+  - component: {fileID: 3960980497075927065}
   m_Layer: 7
   m_Name: Eyes
   m_TagString: Untagged
@@ -186,6 +187,22 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &3960980497075927065
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2549108304126576411}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 197d343328c363c429efdb033554354a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eyesUp: {fileID: 21300000, guid: 7391304e6dcdc594484288107bfd217f, type: 3}
+  eyesDown: {fileID: 21300000, guid: b97167c35748db84fb4d32f4f242922a, type: 3}
+  eyesRight: {fileID: 21300000, guid: 07ddb51374d9f19458dad756bbbcd880, type: 3}
+  eyesLeft: {fileID: 21300000, guid: d65aa956b7569874fab274083826a77f, type: 3}
 --- !u!1 &5706938423687338990
 GameObject:
   m_ObjectHideFlags: 0
@@ -452,6 +469,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   duration: 8
+  body: {fileID: 1621911257801122653}
+  eyes: {fileID: 8767368262611319108}
+  vulnerableState: {fileID: 6545126027061823391}
+  unVulnerableState: {fileID: 7834488732618668567}
 --- !u!114 &5940186519710036614
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -465,6 +486,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   duration: 0
+  home: {fileID: 0}
+  exithome: {fileID: 0}
 --- !u!114 &3069434502757868733
 MonoBehaviour:
   m_ObjectHideFlags: 0
