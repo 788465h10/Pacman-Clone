@@ -57,6 +57,7 @@ public class GameManager : MonoBehaviour
     private void SetLives(int lives)
     {
         this.lives = lives;
+        healthCurrent.fillAmount = this.lives / 10.0f;
     }
     public void GhostEaten(Ghost ghost)
     {
@@ -69,7 +70,7 @@ public class GameManager : MonoBehaviour
         this.pacman.gameObject.SetActive(false);
         SetLives(this.lives - 1);
 
-        if(this.lives > 0)
+        if (this.lives > 0)
         {
             Invoke(nameof(RestState), 3.0f);
         }
