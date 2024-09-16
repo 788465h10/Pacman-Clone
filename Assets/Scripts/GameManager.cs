@@ -1,4 +1,6 @@
+using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
@@ -10,7 +12,8 @@ public class GameManager : MonoBehaviour
     public int ghostMultiplier { get; private set; } = 1;
     public int score { get; private set; }
     public int lives { get; private set; }
-
+    public TMP_Text scoreText;
+    public Image healthCurrent;
     private void Start()
     {
         NewGame();
@@ -19,6 +22,7 @@ public class GameManager : MonoBehaviour
     {
         SetScore(0);
         SetLives(3);
+        scoreText.text = "Score: 0";
         NewRound();
     }
     private void NewRound()
@@ -85,7 +89,8 @@ public class GameManager : MonoBehaviour
     {
         pellet.gameObject.SetActive(false); //hide pellet
         SetScore(this.score + pellet.points);
-        if(!IsPelletRemaining())
+        scoreText.text = "Score: " + this.score.ToString();
+        if (!IsPelletRemaining())
         {
             this.pacman.gameObject.SetActive(false);
             Invoke(nameof(NewRound), 3.0f);
