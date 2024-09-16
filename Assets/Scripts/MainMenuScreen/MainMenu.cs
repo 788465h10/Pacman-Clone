@@ -3,8 +3,13 @@ using UnityEngine;
 
 public class MainMenu : MonoBehaviour
 {
-    public void PlayGame()
+    public void PlayButton()
     {
-        SceneManager.LoadSceneAsync("Pacman");
+        SceneManager.LoadScene("Pacman");
+    }
+    public void ExitButton()
+    {
+        Application.Quit();
+        Debug.Log("Exit Button Pressed");
     }
 }
