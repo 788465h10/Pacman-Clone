@@ -4,7 +4,7 @@ using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
-
+    public GameOver gameOver;
     public Ghost[] ghosts;
     public Pacman pacman;
     public Transform pellets;
@@ -49,6 +49,7 @@ public class GameManager : MonoBehaviour
             this.ghosts[i].gameObject.SetActive(false);
         }
         this.pacman.gameObject.SetActive(false);
+        gameOver.Setup(this.score);
     }
     private void SetScore(int score)
     {
@@ -81,8 +82,9 @@ public class GameManager : MonoBehaviour
     }
     private void Update()
     {
-        if (this.lives <= 0 && Input.anyKeyDown)
+        if (this.lives <= 0 && Input.GetKeyDown("space"))
         {
+            gameOver.gameObject.SetActive(false);
             NewGame();
         }
     }
