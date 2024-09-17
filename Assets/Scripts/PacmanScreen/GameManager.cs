@@ -14,6 +14,7 @@ public class GameManager : MonoBehaviour
     public int lives { get; private set; }
     public TMP_Text scoreText;
     public Image healthCurrent;
+    public PauseMenu pauseMenu;
     private void Start()
     {
         NewGame();
@@ -82,6 +83,12 @@ public class GameManager : MonoBehaviour
     }
     private void Update()
     {
+        if(Input.GetKeyDown("escape"))
+        {
+            //load pause menu
+            pauseMenu.gameObject.SetActive(true);
+            Time.timeScale = 0;
+        }
         if (this.lives <= 0 && Input.GetKeyDown("space"))
         {
             gameOver.gameObject.SetActive(false);
