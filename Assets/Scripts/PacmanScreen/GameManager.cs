@@ -1,5 +1,6 @@
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
@@ -15,16 +16,25 @@ public class GameManager : MonoBehaviour
     public TMP_Text scoreText;
     public Image healthCurrent;
     public PauseMenu pauseMenu;
+    public static int currentScores, currentLives;
     private void Start()
     {
         NewGame();
     }
     private void NewGame()
     {
-        SetScore(0);
-        SetLives(3);
-        scoreText.text = "Score: 0";
-        NewRound();
+        if(SceneManager.GetActiveScene().name == "Pacman")
+        {
+            SetScore(0);
+            SetLives(3);
+        }
+        if(SceneManager.GetActiveScene().name == "Pacman1")
+        {
+            SetScore(currentScores);
+            SetLives(currentLives);
+        }
+        scoreText.text = "Score: " + score.ToString();
+        NewRound();        
     }
     private void NewRound()
     {
@@ -83,17 +93,29 @@ public class GameManager : MonoBehaviour
     }
     private void Update()
     {
+        //press esc to pause game
         if(Input.GetKeyDown("escape"))
         {
-            //load pause menu
             pauseMenu.gameObject.SetActive(true);
             Time.timeScale = 0;
         }
+        //if game over, press space to start new game from lv1
         if (this.lives <= 0 && Input.GetKeyDown("space"))
         {
             gameOver.gameObject.SetActive(false);
             NewGame();
         }
+        //if you win, move to next level
+        if (this.lives > 0 && !IsPelletRemaining())
+        {
+            currentScores = this.score;
+            currentLives = this.lives;
+            Invoke(nameof(LoadNextLevel), 3.0f);
+        }
+    }
+    private void LoadNextLevel()
+    {
+        SceneManager.LoadScene("Pacman1");
     }
     public void PelletEaten(Pellet pellet)
     {
