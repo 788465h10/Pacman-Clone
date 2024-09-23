@@ -1,3 +1,4 @@
+using System.Net.Http.Headers;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -23,16 +24,22 @@ public class GameManager : MonoBehaviour
     }
     private void NewGame()
     {
-        if(SceneManager.GetActiveScene().name == "Pacman")
-        {
-            SetScore(0);
-            SetLives(3);
-        }
-        if(SceneManager.GetActiveScene().name == "Pacman1")
-        {
-            SetScore(currentScores);
-            SetLives(currentLives);
-        }
+        // 2 lines below are used for testing purposes
+        SetScore(0);
+        SetLives(3);
+
+        //uncomment that lines if you want to make game save and forward scores and lives to the next level
+        //if (SceneManager.GetActiveScene().name == "Pacman")
+        //{
+        //    SetScore(0);
+        //    SetLives(3);
+        //}
+        //else
+        //{
+        //    SetScore(currentScores);
+        //    SetLives(currentLives);
+        //}
+
         scoreText.text = "Score: " + score.ToString();
         NewRound();        
     }
@@ -115,7 +122,23 @@ public class GameManager : MonoBehaviour
     }
     private void LoadNextLevel()
     {
-        SceneManager.LoadScene("Pacman1");
+        switch (SceneManager.GetActiveScene().name)
+        {
+            case "Pacman":
+                SceneManager.LoadScene("Pacman1");
+                break;
+            case "Pacman1":
+                SceneManager.LoadScene("Pacman2");
+                break;
+            case "Pacman2":
+                SceneManager.LoadScene("Pacman3");
+                break;
+            case "Pacman3":
+                SceneManager.LoadScene("PacmanFinal");
+                break;
+            default:
+                break;
+        }
     }
     public void PelletEaten(Pellet pellet)
     {
