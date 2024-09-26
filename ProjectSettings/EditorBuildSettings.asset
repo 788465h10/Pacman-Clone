@@ -22,5 +22,5 @@ EditorBuildSettings:
     guid: edafa2c632bb3bc4d81adf8a0cd66419
   - enabled: 1
     path: Assets/Scenes/PacmanFinal.unity
-    guid: 1e89734fb6ecbba44a1b634ffb95303d
+    guid: 63e6e8a206fad354a914bca2c41d59d7
   m_configObjects: {}
