@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2139391240630395256}
   - component: {fileID: 8419594226641157146}
   - component: {fileID: 3206182664225574859}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: spark
   m_TagString: Untagged
   m_Icon: {fileID: 0}

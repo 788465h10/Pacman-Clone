@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1043584945439281962}
   - component: {fileID: 6755059914525044851}
   - component: {fileID: 243397653608151141}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: EnemyEyes
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -120,7 +120,7 @@ GameObject:
   - component: {fileID: 5246235254252586505}
   - component: {fileID: 1426758797255456289}
   - component: {fileID: -6638813596103808070}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: MeleeEnemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -199,7 +199,7 @@ CircleCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: -0.004823208, y: -0.15917778}

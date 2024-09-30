@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5345551115332614808}
   - component: {fileID: 5661203766399417593}
   - component: {fileID: 8825049619170470194}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: EnemyEyes
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -116,7 +116,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2048369765045791860}
   - component: {fileID: 4303967329713583996}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Shooting
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -164,7 +164,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5379654388240784407}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: ShootingPos
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -200,7 +200,7 @@ GameObject:
   - component: {fileID: 2726868814637917847}
   - component: {fileID: 6484254351746422779}
   - component: {fileID: 1000010240720141205}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: RangeEnemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -280,7 +280,7 @@ CircleCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: -0.004823208, y: -0.1591778}
