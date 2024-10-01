@@ -59,6 +59,7 @@ public class FinalMovement : MonoBehaviour
     {
         if (collision.gameObject.layer == LayerMask.NameToLayer("EnemyBullet"))
         {
+            //reduce pacman's lives
             this.gameObject.SetActive(false);
         }
     }

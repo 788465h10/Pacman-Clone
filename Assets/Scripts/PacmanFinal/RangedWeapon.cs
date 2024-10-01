@@ -7,6 +7,7 @@ public class RangedWeapon : MonoBehaviour
     public float Time2Shoot = 0.3f;
     public float bulletPower;
 
+    //add distance to shoot (thinking)
 
     private float time2Shoot;
 

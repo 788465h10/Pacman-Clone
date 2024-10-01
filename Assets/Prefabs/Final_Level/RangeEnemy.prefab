@@ -155,6 +155,8 @@ MonoBehaviour:
   initialPos: {fileID: 5379654388240784407}
   Time2Shoot: 1.8
   bulletPower: 2
+  player: {fileID: 4260462414126488487, guid: 0031e142b0fbac94f87195a6371d0184, type: 3}
+  distance2Shoot: 50
 --- !u!1 &5928549472662778277
 GameObject:
   m_ObjectHideFlags: 0

@@ -14,6 +14,8 @@ public class Enemy : MonoBehaviour
 
     private void Update()
     {
+        //divide movement of ranged and melee enemy (thinking)
+
         distance = Vector2.Distance(transform.position, target.transform.position);
         Vector2 direction = target.transform.position - transform.position;
         direction.Normalize();
@@ -29,6 +31,7 @@ public class Enemy : MonoBehaviour
         if (collision.gameObject.layer == LayerMask.NameToLayer("Bullet"))
         {
             Destroy(this.gameObject);
+            Destroy(collision.gameObject);
         }
     }
 }
