@@ -7,4 +7,11 @@ public class Time2Live : MonoBehaviour
     {
         Destroy(this.gameObject, time);
     }
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.layer == LayerMask.NameToLayer("Obstacle"))
+        {
+            Destroy(this.gameObject);
+        }
+    }
 }
