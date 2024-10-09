@@ -1,25 +1,21 @@
 using UnityEngine;
+using UnityEngine.AI;
 
 public class Enemy : MonoBehaviour
 {
-    private GameObject target;
-    public float speed = 10f;
-
-    private float distance;
-
-    private void Awake()
+    GameObject target;
+    NavMeshAgent agent;
+    private void Start()
     {
+        agent = GetComponent<NavMeshAgent>();
+        target = GetComponent<GameObject>();
         target = GameObject.Find("Pacman");
+        agent.updateRotation = false;
+        agent.updateUpAxis = false;
     }
-
     private void Update()
     {
-        //divide movement of ranged and melee enemy (thinking)
-
-        distance = Vector2.Distance(transform.position, target.transform.position);
-        Vector2 direction = target.transform.position - transform.position;
-        direction.Normalize();
-        transform.position = Vector2.MoveTowards(transform.position, target.transform.position, speed * Time.deltaTime);
+        agent.SetDestination(target.transform.position);
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -34,4 +30,6 @@ public class Enemy : MonoBehaviour
             Destroy(collision.gameObject);
         }
     }
+
+
 }
