@@ -69,6 +69,14 @@ public class GameManager : MonoBehaviour
         this.pacman.gameObject.SetActive(false);
         gameOver.Setup(this.score);
     }
+    public void ReduceLive()
+    {
+        SetLives(this.lives - 1);
+    }
+    public void IncreaseLive()
+    {
+        SetLives(this.lives + 1);
+    }
     private void SetScore(int score)
     {
         this.score = score;
