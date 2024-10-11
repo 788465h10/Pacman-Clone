@@ -26,7 +26,7 @@ public class GameManager : MonoBehaviour
     {
         // 2 lines below are used for testing purposes
         SetScore(0);
-        SetLives(3);
+        SetLives(2);
 
         //uncomment that lines if you want to make game save and forward scores and lives to the next level
         //if (SceneManager.GetActiveScene().name == "Pacman")
@@ -85,6 +85,10 @@ public class GameManager : MonoBehaviour
     {
         this.lives = lives;
         healthCurrent.fillAmount = this.lives / 10.0f;
+        if (this.lives <= 0)
+        {
+            GameOver();
+        }
     }
     public void GhostEaten(Ghost ghost)
     {
@@ -114,11 +118,12 @@ public class GameManager : MonoBehaviour
             pauseMenu.gameObject.SetActive(true);
             Time.timeScale = 0;
         }
-        //if game over, press space to start new game from lv1
+        //if game over, press space to start new game at level 1
         if (this.lives <= 0 && Input.GetKeyDown("space"))
         {
             gameOver.gameObject.SetActive(false);
-            NewGame();
+            SceneManager.LoadScene("Pacman");
+            //NewGame();
         }
         //if you win, move to next level
         if (this.lives > 0 && !IsPelletRemaining())

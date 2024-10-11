@@ -19,17 +19,10 @@ public class Enemy : MonoBehaviour
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.layer == LayerMask.NameToLayer("Pacman"))
-        {
-            Destroy(collision.gameObject);
-            target = null;
-        }
         if (collision.gameObject.layer == LayerMask.NameToLayer("Bullet"))
         {
             Destroy(this.gameObject);
             Destroy(collision.gameObject);
         }
     }
-
-
 }
