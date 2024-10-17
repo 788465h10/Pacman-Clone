@@ -13,6 +13,8 @@ public class FinalMovement : MonoBehaviour
     public Vector3 moveInput;
 
     public SpriteRenderer spriteRenderer;
+    public GameoverFinal gameover;
+
     private void Start()
     {
         animator = GetComponentInChildren<Animator>();
@@ -57,10 +59,10 @@ public class FinalMovement : MonoBehaviour
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.layer == LayerMask.NameToLayer("EnemyBullet"))
+        if (collision.gameObject.layer == LayerMask.NameToLayer("Ghost"))
         {
-            //reduce pacman's lives
-            this.gameObject.SetActive(false);
+            Destroy(this.gameObject);
+            gameover.Setup();
         }
     }
 }
