@@ -9,8 +9,8 @@ public class Chest : MonoBehaviour
     public Sprite openedChest;
     public Sprite closedChest;
 
-    private bool isOpened = false;
-    private bool isTriggered = false;
+    public bool isOpened = false;
+    public bool isTriggered = false;
 
     public TMP_Text suggestionText;
 
@@ -25,7 +25,10 @@ public class Chest : MonoBehaviour
         if (collision.gameObject.layer == LayerMask.NameToLayer("Pacman"))
         {
             isTriggered = true;
-            suggestionText.gameObject.SetActive(true);
+            if (!isOpened)
+            {
+                suggestionText.gameObject.SetActive(true);
+            }
         }
     }
     private void OnTriggerExit2D(Collider2D collision)
