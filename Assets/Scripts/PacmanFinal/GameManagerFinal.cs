@@ -1,14 +1,15 @@
-using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManagerFinal : MonoBehaviour
 {
     public PauseMenuFinal pauseMenu;
     public GameoverFinal gameOver;
     public FinalMovement player;
+    public GameObject keyUI;
+    public GameObject door;
 
     public Chest[] chests;
     public int[] checkIfOpened = { 0, 0, 0 };
@@ -34,20 +35,30 @@ public class GameManagerFinal : MonoBehaviour
                 currentKey.text = keyCounter + " / 3";
             }
         }
+        //check if all chests are opened, open door
+        if (keyCounter == 3)
+        {
+            door.SetActive(true);
+        }
         //press esc to pause game
         if (Input.GetKeyDown("escape"))
         {
             pauseMenu.gameObject.SetActive(true);
             Time.timeScale = 0;
         }
-        //if game over, press space to start new game from lv1
-        if (player.IsDestroyed() && Input.GetKeyDown("space"))
+        //game over behavior
+        if (player.IsDestroyed())
         {
-            gameOver.gameObject.SetActive(false);
+            keyUI.gameObject.SetActive(false);
             //if you lose, end game by showing your score but don't save it (update later)
+
+            //if you win, show win scene and save score (update later)
+            if (Input.GetKeyDown("space"))
+            {
+                gameOver.gameObject.SetActive(false);
+                SceneManager.LoadScene("Pacman");
+            }
         }
-        //if you win, show win scene and save score (update later)
-        
     }
 
 }

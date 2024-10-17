@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
@@ -44,6 +42,7 @@ public class Chest : MonoBehaviour
         if (isTriggered && !isOpened && Input.GetKeyDown(KeyCode.F))
         {
             OpenChest();
+            suggestionText.gameObject.SetActive(false);
         }
     }
     private void OpenChest()

@@ -1,5 +1,4 @@
 using UnityEngine.SceneManagement;
-using TMPro;
 using UnityEngine;
 
 public class GameoverFinal : MonoBehaviour
