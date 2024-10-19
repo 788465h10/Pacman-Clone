@@ -17,27 +17,29 @@ public class GameManager : MonoBehaviour
     public Image healthCurrent;
     public PauseMenu pauseMenu;
     public static int currentScores, currentLives;
+
+    NormalLevelMusic normalLevelMusic;
+    private void Awake()
+    {
+        normalLevelMusic = GameObject.FindGameObjectWithTag("Audio").GetComponent<NormalLevelMusic>();
+    }
     private void Start()
     {
         NewGame();
     }
     private void NewGame()
     {
-        // 2 lines below are used for testing purposes
-        SetScore(0);
-        SetLives(2);
-
-        //uncomment that lines if you want to make game save and forward scores and lives to the next level
-        //if (SceneManager.GetActiveScene().name == "Pacman")
-        //{
-        //    SetScore(0);
-        //    SetLives(3);
-        //}
-        //else
-        //{
-        //    SetScore(currentScores);
-        //    SetLives(currentLives);
-        //}
+        if (SceneManager.GetActiveScene().name == "Pacman")
+        {
+            SetScore(0);
+            SetLives(3);
+        }
+        else
+        {
+            SetScore(currentScores);
+            //SetLives(currentLives);
+            SetLives(3);
+        }
 
         scoreText.text = "Score: " + score.ToString();
         NewRound();        
@@ -66,6 +68,7 @@ public class GameManager : MonoBehaviour
             this.ghosts[i].gameObject.SetActive(false);
         }
         this.pacman.gameObject.SetActive(false);
+        normalLevelMusic.StopBackground();
         gameOver.Setup(this.score);
     }
     public void ReduceLive()
@@ -92,12 +95,14 @@ public class GameManager : MonoBehaviour
     public void GhostEaten(Ghost ghost)
     {
         int pointForGhost = ghost.points * this.ghostMultiplier;
+        normalLevelMusic.PlaySFX(normalLevelMusic.eatGhost);
         SetScore(this.score + pointForGhost);
         this.ghostMultiplier++;
     }
     public void PacmanEaten()
     {
         this.pacman.gameObject.SetActive(false);
+        normalLevelMusic.PlaySFX(normalLevelMusic.death);
         SetLives(this.lives - 1);
 
         if (this.lives > 0)
@@ -155,6 +160,7 @@ public class GameManager : MonoBehaviour
     public void PelletEaten(Pellet pellet)
     {
         pellet.gameObject.SetActive(false); //hide pellet
+        normalLevelMusic.PlaySFX(normalLevelMusic.eatPellet);
         SetScore(this.score + pellet.points);
         scoreText.text = "Score: " + this.score.ToString();
         if (!IsPelletRemaining())
@@ -170,6 +176,7 @@ public class GameManager : MonoBehaviour
             this.ghosts[i].frightened.Enable(powerPellet.duration);
         }
         PelletEaten(powerPellet);
+        normalLevelMusic.PlaySFX(normalLevelMusic.powerPelletDuration);
         CancelInvoke();
         Invoke(nameof(ResetGhostMultiplier), powerPellet.duration);
     }

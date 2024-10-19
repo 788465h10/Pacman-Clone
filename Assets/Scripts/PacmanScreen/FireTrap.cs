@@ -11,12 +11,14 @@ public class FireTrap : MonoBehaviour
 
     private bool triggered;
     private bool active;
+    NormalLevelMusic normalLevelMusic;
 
     private void Awake()
     {
         anim = GetComponent<Animator>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         gameManager = FindObjectOfType<GameManager>();
+        normalLevelMusic = GameObject.FindGameObjectWithTag("Audio").GetComponent<NormalLevelMusic>();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -39,11 +41,13 @@ public class FireTrap : MonoBehaviour
     {
         triggered = true;
         spriteRenderer.color = Color.red; //turn to red to notify player
+        normalLevelMusic.PlaySFX(normalLevelMusic.activeFlame);
         yield return new WaitForSeconds(activationDelay);
         spriteRenderer.color = Color.white;
         active = true;
         anim.SetBool("active", true);
 
+        normalLevelMusic.PlaySFX(normalLevelMusic.flame);
         yield return new WaitForSeconds(activeTime);
         active = false;
         triggered = false;

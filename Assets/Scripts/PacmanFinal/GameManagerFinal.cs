@@ -10,6 +10,7 @@ public class GameManagerFinal : MonoBehaviour
     public FinalMovement player;
     public GameObject keyUI;
     public GameObject door;
+    public TMP_Text findDoorNoti;
 
     public Chest[] chests;
     public int[] checkIfOpened = { 0, 0, 0 };
@@ -39,6 +40,7 @@ public class GameManagerFinal : MonoBehaviour
         if (keyCounter == 3)
         {
             door.SetActive(true);
+            findDoorNoti.gameObject.SetActive(true);
         }
         //press esc to pause game
         if (Input.GetKeyDown("escape"))
@@ -50,9 +52,6 @@ public class GameManagerFinal : MonoBehaviour
         if (player.IsDestroyed())
         {
             keyUI.gameObject.SetActive(false);
-            //if you lose, end game by showing your score but don't save it (update later)
-
-            //if you win, show win scene and save score (update later)
             if (Input.GetKeyDown("space"))
             {
                 gameOver.gameObject.SetActive(false);

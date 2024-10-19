@@ -62,7 +62,7 @@ public class FinalMovement : MonoBehaviour
         if (collision.gameObject.layer == LayerMask.NameToLayer("Ghost"))
         {
             Destroy(this.gameObject);
-            gameover.Setup();
+            gameover.Setup(GameManager.currentScores);
         }
     }
 }

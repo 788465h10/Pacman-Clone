@@ -9,12 +9,14 @@ public class HealLive : MonoBehaviour
     private CircleCollider2D circleCollider2D;
 
     private bool visible = true;
+    NormalLevelMusic normalLevelMusic;
 
     private void Awake()
     {
         gameManager = FindObjectOfType<GameManager>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         circleCollider2D = GetComponent<CircleCollider2D>();
+        normalLevelMusic = GameObject.FindGameObjectWithTag("Audio").GetComponent<NormalLevelMusic>();
     }
     private void Start()
     {
@@ -28,6 +30,7 @@ public class HealLive : MonoBehaviour
     {
         if (collision.gameObject.layer == LayerMask.NameToLayer("Pacman"))
         {
+            normalLevelMusic.PlaySFX(normalLevelMusic.eatFruit);
             if (currentLives < 3)
             {
                 gameManager.IncreaseLive();
