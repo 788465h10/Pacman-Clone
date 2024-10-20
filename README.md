@@ -1,4 +1,4 @@
-# Pacman - UIT
+# Pacman - Clone
 
 ## Tài liệu của trò chơi:
 - Mã nguồn: https://github.com/788465h10/Pacman-Clone
