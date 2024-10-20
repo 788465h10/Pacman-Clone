@@ -2,11 +2,8 @@
 
 ## Tài liệu của trò chơi:
 - Mã nguồn: https://github.com/788465h10/Pacman-Clone
-- Báo cáo:
-- Demo:
 
-## Lý do xây dựng trò chơi
-- Trò chơi này chính là đồ án cho môn học <b>SE121.P11 - Đồ Án 1 </b>
+- Demo:
 
 ## Mô tả trò chơi
 
@@ -45,11 +42,6 @@ https://en.m.wikipedia.org/wiki/File:WebGL_Logo.svg
 		</tr>
 	</table>
 </div>
-
-## Hỗ trợ
-
-Liên hệ hỗ trợ thông qua:
-- Gmail: 22521011@gm.uit.edu.vn
 
 
 
