@@ -4,6 +4,7 @@ public class FinalLevelMusic : MonoBehaviour
 {
     [SerializeField] AudioSource musicBg;
     [SerializeField] AudioSource musicSfx;
+    [SerializeField] AudioSource blackHoldeSfx;
 
     public AudioClip background;
     public AudioClip boost;
@@ -11,7 +12,6 @@ public class FinalLevelMusic : MonoBehaviour
     public AudioClip openChest;
     public AudioClip death;
     public AudioClip blackHole;
-    public AudioClip water;
     public AudioClip enemyDie;
     public AudioClip winNoti;
     public AudioClip backgroundWin;
@@ -31,10 +31,18 @@ public class FinalLevelMusic : MonoBehaviour
     }
     public void PlayWinBackground()
     {
+        StopBlackHole();
         StopBackground();
         PlaySFX(winNoti);
         musicBg.clip = backgroundWin;
         musicBg.Play();
     }
-
+    public void PlayBlackHole()
+    {
+        blackHoldeSfx.PlayOneShot(blackHole);
+    }
+    public void StopBlackHole() 
+    {
+        blackHoldeSfx.Stop();
+    }
 }

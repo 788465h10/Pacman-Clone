@@ -17,11 +17,13 @@ public class GameManagerFinal : MonoBehaviour
 
     public TMP_Text currentKey;
     public float keyCounter;
+    FinalLevelMusic finalLevelMusic;
 
     private void Awake()
     {
         currentKey.text = "0 / 3";
         keyCounter = 0;
+        finalLevelMusic = GameObject.FindGameObjectWithTag("Audio").GetComponent<FinalLevelMusic>();
     }
 
     private void Update()
@@ -41,6 +43,15 @@ public class GameManagerFinal : MonoBehaviour
         {
             door.SetActive(true);
             findDoorNoti.gameObject.SetActive(true);
+            float des = Vector3.Distance(player.transform.position, door.transform.position);
+            if (des < 20)
+            {
+                finalLevelMusic.PlayBlackHole();
+            }
+            else
+            {
+                finalLevelMusic.StopBlackHole();
+            }
         }
         //press esc to pause game
         if (Input.GetKeyDown("escape"))
