@@ -8,6 +8,11 @@ public class VolumeSetting : MonoBehaviour
     [SerializeField] Slider musicSlider;
     [SerializeField] Slider sfxSlider;
 
+    private void Start()
+    {
+        SetMusicVolume();
+        SetSFXVolume();
+    }
     public void SetMusicVolume()
     {
         float volume = musicSlider.value;
