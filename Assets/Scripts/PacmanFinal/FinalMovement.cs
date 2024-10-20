@@ -13,6 +13,12 @@ public class FinalMovement : MonoBehaviour
     public Vector3 moveInput;
 
     public SpriteRenderer spriteRenderer;
+    public GameoverFinal gameover;
+    FinalLevelMusic finalLevelMusic;
+    private void Awake()
+    {
+        finalLevelMusic = GameObject.FindGameObjectWithTag("Audio").GetComponent<FinalLevelMusic>();
+    }
     private void Start()
     {
         animator = GetComponentInChildren<Animator>();
@@ -26,6 +32,7 @@ public class FinalMovement : MonoBehaviour
         animator.SetFloat("speed", moveInput.sqrMagnitude);
         if (Input.GetKeyDown(KeyCode.Space) && rollTime <= 0)
         {
+            finalLevelMusic.PlaySFX(finalLevelMusic.boost);
             animator.SetBool("rool", true);
             moveSpeed += rollBoost;
             rollTime = RollTime;
@@ -57,10 +64,12 @@ public class FinalMovement : MonoBehaviour
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.layer == LayerMask.NameToLayer("EnemyBullet"))
+        if (collision.gameObject.layer == LayerMask.NameToLayer("Ghost"))
         {
-            //reduce pacman's lives
-            this.gameObject.SetActive(false);
+            finalLevelMusic.PlaySFX(finalLevelMusic.death);
+            finalLevelMusic.StopBackground();
+            Destroy(this.gameObject);
+            gameover.Setup(GameManager.currentScores);
         }
     }
 }

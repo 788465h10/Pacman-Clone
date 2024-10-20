@@ -9,7 +9,11 @@ public class Weapon : MonoBehaviour
     public float bulletPower;
 
     private float time2Shoot;
-
+    FinalLevelMusic finalLevelMusic;
+    private void Awake()
+    {
+        finalLevelMusic = GameObject.FindGameObjectWithTag("Audio").GetComponent<FinalLevelMusic>();
+    }
     private void Update()
     {
         RotateGun();
@@ -17,7 +21,7 @@ public class Weapon : MonoBehaviour
         if (Input.GetMouseButtonDown(0) && time2Shoot < 0)
         {
             Shooting();
-
+            finalLevelMusic.PlaySFX(finalLevelMusic.shooting);
         }
     }
     private void RotateGun()
