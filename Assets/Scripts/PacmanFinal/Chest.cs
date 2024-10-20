@@ -11,11 +11,13 @@ public class Chest : MonoBehaviour
     public bool isTriggered = false;
 
     public TMP_Text suggestionText;
+    FinalLevelMusic finalLevelMusic;
 
     private void Awake()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
         spriteRenderer.sprite = closedChest;
+        finalLevelMusic = GameObject.FindGameObjectWithTag("Audio").GetComponent<FinalLevelMusic>();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -49,5 +51,6 @@ public class Chest : MonoBehaviour
     {
         spriteRenderer.sprite = openedChest;
         isOpened = true;
+        finalLevelMusic.PlaySFX(finalLevelMusic.openChest);
     }
 }

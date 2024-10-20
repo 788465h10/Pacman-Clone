@@ -5,6 +5,11 @@ public class Enemy : MonoBehaviour
 {
     GameObject target;
     NavMeshAgent agent;
+    FinalLevelMusic finalLevelMusic;
+    private void Awake()
+    {
+        finalLevelMusic = GameObject.FindGameObjectWithTag("Audio").GetComponent<FinalLevelMusic>();
+    }
     private void Start()
     {
         agent = GetComponent<NavMeshAgent>();
@@ -21,6 +26,7 @@ public class Enemy : MonoBehaviour
     {
         if (collision.gameObject.layer == LayerMask.NameToLayer("Bullet"))
         {
+            finalLevelMusic.PlaySFX(finalLevelMusic.enemyDie);
             Destroy(this.gameObject);
             Destroy(collision.gameObject);
         }

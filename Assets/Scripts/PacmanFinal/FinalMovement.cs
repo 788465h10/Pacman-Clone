@@ -14,7 +14,11 @@ public class FinalMovement : MonoBehaviour
 
     public SpriteRenderer spriteRenderer;
     public GameoverFinal gameover;
-
+    FinalLevelMusic finalLevelMusic;
+    private void Awake()
+    {
+        finalLevelMusic = GameObject.FindGameObjectWithTag("Audio").GetComponent<FinalLevelMusic>();
+    }
     private void Start()
     {
         animator = GetComponentInChildren<Animator>();
@@ -28,6 +32,7 @@ public class FinalMovement : MonoBehaviour
         animator.SetFloat("speed", moveInput.sqrMagnitude);
         if (Input.GetKeyDown(KeyCode.Space) && rollTime <= 0)
         {
+            finalLevelMusic.PlaySFX(finalLevelMusic.boost);
             animator.SetBool("rool", true);
             moveSpeed += rollBoost;
             rollTime = RollTime;
@@ -61,6 +66,8 @@ public class FinalMovement : MonoBehaviour
     {
         if (collision.gameObject.layer == LayerMask.NameToLayer("Ghost"))
         {
+            finalLevelMusic.PlaySFX(finalLevelMusic.death);
+            finalLevelMusic.StopBackground();
             Destroy(this.gameObject);
             gameover.Setup(GameManager.currentScores);
         }
