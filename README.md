@@ -28,7 +28,6 @@
   - <b>Bước 3:</b> Sau khi khởi chạy thành công trên Unity, nhấp vào <b>File</b> -> Chọn mục <b>Build Settings</b> -> Chọn <b>WebGL Build</b> -> Nhấn vào <b>Build and Run</b>.
     - Sau khi thực hiện xong <b>Bước 3</b>, trò chơi sẽ được chạy trên <a>https://localhost</a> ở một cổng phù hợp (phụ thuộc vào cách setting khi build của bạn).
   - <b>Bước 4:</b> Trải nghiệm game.
-https://en.m.wikipedia.org/wiki/File:WebGL_Logo.svg
 ## Công nghệ sử dụng
 <div align="center">
 	<table>
