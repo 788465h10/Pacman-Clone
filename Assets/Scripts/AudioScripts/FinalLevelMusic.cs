@@ -14,8 +14,6 @@ public class FinalLevelMusic : MonoBehaviour
     public AudioClip blackHole;
     public AudioClip enemyDie;
     public AudioClip winNoti;
-    public AudioClip backgroundWin;
-
     private void Start()
     {
         musicBg.clip = background;
@@ -34,8 +32,6 @@ public class FinalLevelMusic : MonoBehaviour
         StopBlackHole();
         StopBackground();
         PlaySFX(winNoti);
-        musicBg.clip = backgroundWin;
-        musicBg.Play();
     }
     public void PlayBlackHole()
     {

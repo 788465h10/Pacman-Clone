@@ -1,8 +1,8 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Escape : MonoBehaviour
 {
-    public GameWinFinal gameWin;
     FinalLevelMusic finalLevelMusic;
     private void Awake()
     {
@@ -13,8 +13,12 @@ public class Escape : MonoBehaviour
         if (collision.gameObject.layer == LayerMask.NameToLayer("Pacman"))
         {
             finalLevelMusic.PlayWinBackground();
-            gameWin.Setup(GameManager.currentScores);
             Destroy(collision.gameObject);
+            Invoke("LoadGameWinBg", 4f);
         }
+    }
+    private void LoadGameWinBg()
+    {
+        SceneManager.LoadScene("Outtro");
     }
 }
