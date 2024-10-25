@@ -1,10 +1,5 @@
 # Pacman - Clone
 
-## Tài liệu của trò chơi:
-- Mã nguồn: https://github.com/788465h10/Pacman-Clone
-
-- Demo:
-
 ## Mô tả trò chơi
 
 - Được lấy ý tưởng từ trò chơi Pacman, tuy nhiên có sự biến tấu cho phù hợp điều kiện.
@@ -19,15 +14,12 @@
 
 ## Cài đặt và khởi chạy trò chơi
 
-- Trường hợp game được publish lên Unity:
-  - <b>Bước 1:</b> Truy cập thông qua đường link sau:
-  - <b>Bước 2:</b> Trải nghiệm game.
-- Trường hợp không publish lên Unity:
-  - <b>Bước 1:</b> Cài đặt Unity Hub và Unity.
-  - <b>Bước 2:</b> Clone game về máy tính cá nhân thông qua đường link sau: <a>https://github.com/788465h10/Pacman-Clone.git</a>
-  - <b>Bước 3:</b> Sau khi khởi chạy thành công trên Unity, nhấp vào <b>File</b> -> Chọn mục <b>Build Settings</b> -> Chọn <b>WebGL Build</b> -> Nhấn vào <b>Build and Run</b>.
-    - Sau khi thực hiện xong <b>Bước 3</b>, trò chơi sẽ được chạy trên <a>https://localhost</a> ở một cổng phù hợp (phụ thuộc vào cách setting khi build của bạn).
-  - <b>Bước 4:</b> Trải nghiệm game.
+
+<b>Bước 1:</b> Cài đặt Unity Hub và Unity. </br>
+<b>Bước 2:</b> Clone game về máy tính cá nhân thông qua đường link sau: <a>https://github.com/788465h10/Pacman-Clone.git</a></br>
+<b>Bước 3:</b> Sau khi khởi chạy thành công trên Unity, nhấp vào <b>File</b> -> Chọn mục <b>Build Settings</b> -> Chọn <b>WebGL Build</b> -> Nhấn vào <b>Build and Run</b>.</br>
+    - Sau khi thực hiện xong <b>Bước 3</b>, trò chơi sẽ được chạy trên <a>https://localhost</a> ở một cổng phù hợp (phụ thuộc vào cách setting khi build của bạn).</br>
+<b>Bước 4:</b> Trải nghiệm game.
 ## Công nghệ sử dụng
 <div align="center">
 	<table>
