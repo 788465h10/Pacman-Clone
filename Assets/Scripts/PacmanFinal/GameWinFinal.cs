@@ -16,6 +16,10 @@ public class GameWinFinal : MonoBehaviour
             hightScore = scores;
         }
         gameObject.SetActive(true);
+        if (hightScore == int.MinValue)
+        {
+            hightScore = 0;
+        }
         hightScoresText.text = hightScore.ToString() + " Points";
         lastScoresText.text = lastScores.ToString() + " Points";
     }

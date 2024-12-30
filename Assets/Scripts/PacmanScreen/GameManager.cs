@@ -9,7 +9,6 @@ public class GameManager : MonoBehaviour
     public Ghost[] ghosts;
     public Pacman pacman;
     public Transform pellets;
-    //more ghost you eat, more points you get
     public int ghostMultiplier { get; private set; } = 1;
     public int score { get; private set; }
     public int lives { get; private set; }
@@ -37,8 +36,7 @@ public class GameManager : MonoBehaviour
         else
         {
             SetScore(currentScores);
-            //SetLives(currentLives);
-            SetLives(3);
+            SetLives(currentLives);
         }
 
         scoreText.text = "Score: " + score.ToString();
@@ -116,20 +114,16 @@ public class GameManager : MonoBehaviour
     }
     private void Update()
     {
-        //press esc to pause game
         if(Input.GetKeyDown("escape"))
         {
             pauseMenu.gameObject.SetActive(true);
             Time.timeScale = 0;
         }
-        //if game over, press space to start new game at level 1
         if (this.lives <= 0 && Input.GetKeyDown("space"))
         {
             gameOver.gameObject.SetActive(false);
             SceneManager.LoadScene("Pacman");
-            //NewGame();
         }
-        //if you win, move to next level
         if (this.lives > 0 && !IsPelletRemaining())
         {
             currentScores = this.score;
@@ -159,7 +153,7 @@ public class GameManager : MonoBehaviour
     }
     public void PelletEaten(Pellet pellet)
     {
-        pellet.gameObject.SetActive(false); //hide pellet
+        pellet.gameObject.SetActive(false); 
         normalLevelMusic.PlaySFX(normalLevelMusic.eatPellet);
         SetScore(this.score + pellet.points);
         scoreText.text = "Score: " + this.score.ToString();

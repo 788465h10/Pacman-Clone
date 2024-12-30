@@ -20196,7 +20196,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 859fd3fd9270ecd47b106bc982b8bbf5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  findDoorNoti: {fileID: 1466635583}
 --- !u!1001 &911123989
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -21394,7 +21393,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1094104890
 Transform:
   m_ObjectHideFlags: 0
