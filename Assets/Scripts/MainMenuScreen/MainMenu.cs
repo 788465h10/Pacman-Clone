@@ -7,13 +7,9 @@ public class MainMenu : MonoBehaviour
     {
         SceneManager.LoadScene("Pacman");
     }
-    public void SettingsButton()
-    {
-        //i will do something after i add sound
-    }
     public void ExitButton()
     {
         Application.Quit();
-        //Debug.Log("Exit Button Pressed");
+        Debug.Log("Exit Button Pressed");
     }
 }
