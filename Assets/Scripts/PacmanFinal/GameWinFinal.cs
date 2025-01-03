@@ -16,9 +16,9 @@ public class GameWinFinal : MonoBehaviour
             hightScore = scores;
         }
         gameObject.SetActive(true);
-        if (hightScore == int.MinValue)
+        if (lastScores == int.MinValue)
         {
-            hightScore = 0;
+            lastScores = 0;
         }
         hightScoresText.text = hightScore.ToString() + " Points";
         lastScoresText.text = lastScores.ToString() + " Points";
